@@ -1,23 +1,25 @@
-const path = require("path")
-const users = require("../module/users-moduel")
-exports.getUser = (req, res) => {
-    res.sendFile(path.join(__dirname + "/../views/index.html"))
+
+
+const path = require("path");
+const myData = require("../module/module")
+
+
+exports.usersControllers =(req, res) => {
+    res.sendFile(path.join(__dirname +"/../views/index.html"))
 }
 
-
-    exports.saveUser = (req, res) => {
+exports.saveControllers = (req, res) => {
     const name = req.body.name;
-    const age = Number(req.body.age);
-
-    const user = {
+    const age = req.body.age;
+    const data = {
         name,
         age
     }
 
-    users.push(user)
+    myData.push(data)
     res.status(201).json({
-        success: true,
-        users
-
+        "success you":"true",
+        myData
     })
+
 }
